@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savanna Trails</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="icon/Screenshot 2026-03-05 200659.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Atma:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Dancing+Script:wght@400..700&family=Edu+NSW+ACT+Cursive:wght@400..700&family=Monoton&family=Pacifico&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+<body> 
+
+<div id="paymentForm">
+<div class="payment-container">
+
+<div class="payment-content">
+<h1>Trip Payment</h1>
+<ul class="trippayment-bar">
+<li class="payment-btn available" data-payment="Mastercard"><img src="icon/1490135018-mastercard_82253.png" alt="master-card"></li>
+<li class="payment-btn " data-payment="paypal"><img src="icon/icons8-paypal-100.png" alt="paypal"></li>
+<li class="payment-btn " data-payment="visa"><img src="icon/icons8-visa-100.png" alt="visa-payment"></li>
+<li class="payment-btn" data-payment="Mpesa"><img src="icon/Mpesa-Logo.png" alt="mpesa"></li>
+</ul>
+<div id="cardtypes">
+<div class="cards-content available " id="Mastercard">
+
+<div class="readonly">
+<input type="text" id="payAmount" class="inputread" readonly>
+</div>
+<!-- BOOKING INFO  for phone only-->
+ 
+ <div class="booking-master">
+
+        <!-- LOCATION  -->
+        <div class="master-input location-box">
+            <img src="phone-icon/icons8-location-90.png" alt="location">
+            <input type="text" id="payLocation"  readonly>
+        </div>
+
+        <!-- DATE + GUEST -->
+        <div class="booking-row">
+
+            <div class="master-input date-box">
+                <img src="phone-icon/icons8-date-90.png" alt="date">
+                <input type="text" id="payDate" readonly>
+            </div>
+
+            <div class="master-input guest-box">
+                <img src="phone-icon/icons8-account-male-90.png" alt="guest">
+                <input type="text" id="payGuests" readonly>
+            </div>
+
+        </div>
+
+    </div>
+
+
+<div class="payment-form">
+
+    <div class="input-box">
+        <label id="cardholderlabel">Cardholder</label>
+        <input id="cardholder" type="text" placeholder="Johnathan Smith">
+    </div>
+
+    <div class="input-box">
+        <label id="cardnumberlabel">Card number</label>
+        <input id="cardNumber" type="text" placeholder="1234 5678 8765 4321">
+    </div>
+
+    <div class="row">
+
+        <div class="input-box">
+            <label id="expdatelabel">Expiration date</label>
+            <input  id="expInput" type="text" placeholder="09/22">
+        </div>
+
+        <div class="input-box">
+            <label id="cvvlabel">CVV code</label>
+            <input id="cvv" type="text" placeholder="999">
+        </div>
+
+    </div>
+
+</div>
+
+<div class="buttons">
+ <button id="pay" onclick="validMasterCard()" class="paye">Pay Now</button>
+<a onclick="closePaymentPage()" class="close"><img src="phone-icon/icons8-close-100.png" alt="close">close</a>
+</div>
+
+</div>
+
+<div class="cards-content" id="paypal">
+<div class="readonly">
+<input type="text" id="payAmount" readonly>
+</div>
+
+<div class="booking-paypal">
+
+        <!-- LOCATION  -->
+        <div class="paypal-input location-box">
+            <img src="phone-icon/icons8-location-90.png" alt="location">
+            <input type="text" id="payLocationPaypal"  readonly>
+        </div>
+
+        <!-- DATE + GUEST -->
+        <div class="booking-row">
+
+            <div class="paypal-input date-box">
+                <img src="phone-icon/icons8-date-90.png" alt="date">
+                <input type="text" id="payDatePaypal" readonly>
+            </div>
+
+            <div class="paypal-input guest-box">
+                <img src="phone-icon/icons8-account-male-90.png" alt="guest">
+                <input type="text" id="payGuestsPaypal" readonly>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+<div class="paypal-loginform">
+<h2>ℹ️ You'll log in to PayPal — your card details stay inside your PayPal account. </h2>
+<div class="input-box">
+    <label id="paypallabel">paypal Email</label>
+    <input id="paypalEmail" type="text" placeholder="example@email.com">
+</div>
+
+<div class="input-box">
+    <label id="passwordlabel">password</label>
+    <input id="password" type="password" placeholder="Enter your PayPal password">
+</div>
+<div class="buttons">
+<button onclick="validpaypal()" class="paye"><img src="icon/icons8-paypal-100.png" alt="paypal-btn">pay</button>
+<a onclick="closePaymentPage()" class="close"><img src="phone-icon/icons8-close-100.png" alt="close">close</a>
+</div>
+
+</div>
+
+
+
+</div>
+ 
+<div class="cards-content" id="visa">
+<div class="readonly">
+<input type="text" id="payAmount" readonly>
+</div>
+ 
+<div class="booking-visa">
+
+        <!-- LOCATION  -->
+        <div class="visa-input location-box">
+            <img src="phone-icon/icons8-location-90.png" alt="location">
+            <input type="text" id="payLocationVisa"  readonly>
+        </div>
+
+        <!-- DATE + GUEST -->
+        <div class="booking-row">
+
+            <div class="visa-input date-box">
+                <img src="phone-icon/icons8-date-90.png" alt="date">
+                <input type="text" id="payDateVisa" readonly>
+            </div>
+
+            <div class="visa-input guest-box">
+                <img src="phone-icon/icons8-account-male-90.png" alt="guest">
+                <input type="text" id="payGuestsVisa" readonly>
+            </div>
+
+        </div>
+
+    </div>
+
+
+<div class="payment-form">
+
+    <div class="input-box">
+        <label id="cardHolderlabel">Cardholder</label>
+        <input id="cardHolder" type="text" placeholder="Johnathan Smith">
+    </div>
+
+    <div class="input-box">
+        <label id="cardNumberlabel">Card number</label>
+        <input id="cardnumber" type="text" placeholder="1234 5678 8765 4321">
+    </div>
+
+    <div class="row">
+
+        <div class="input-box">
+            <label id="expdateLabel">Expiration date</label>
+            <input id="expinput" type="text" placeholder="09/22">
+        </div>
+
+        <div class="input-box">
+            <label id="cvvLabel">CVV code</label>
+            <input id="cvV" type="text" placeholder="999">
+        </div>
+
+    </div>
+
+</div>
+
+<div class="buttons">
+ <button onclick="validVisaCard()" class="paye">Pay Now</button>
+<a onclick="closePaymentPage()" class="close"><img src="phone-icon/icons8-close-100.png" alt="close">close</a>
+</div>
+
+</div>
+
+<div class="cards-content" id="Mpesa">
+<div class="readonly">
+<input type="text" id="payAmount" readonly>
+</div>
+
+<div class="booking-mpesa">
+
+        <!-- LOCATION  -->
+        <div class="mpesa-input location-box">
+            <img src="phone-icon/icons8-location-90.png" alt="location">
+            <input type="text" id="payLocationMpesa"  readonly>
+        </div>
+
+        <!-- DATE + GUEST -->
+        <div class="booking-row">
+
+            <div class="mpesa-input date-box">
+                <img src="phone-icon/icons8-date-90.png" alt="date">
+                <input type="text" id="payDateMpesa" readonly>
+            </div>
+
+            <div class="mpesa-input guest-box">
+                <img src="phone-icon/icons8-account-male-90.png" alt="guest">
+                <input type="text" id="payGuestsMpesa" readonly>
+            </div>
+
+        </div>
+
+    </div>
+
+
+<div class="payment-form">
+<h2> ℹ️ You'll receive a prompt on your designated phone-number to complete the payment please. Enter your pin to complete your transaction </h2>
+    <div class="input-box">
+        <label id="phonelabel">phone number</label>
+        <input id="phone" type="text" placeholder="+254 712 345 678">
+    </div>
+ 
+
+</div>
+
+<div class="buttons">
+ <button onclick="validMpesaPrompt()" class="paye">Lipa na mpesa</button>
+<a onclick="closePaymentPage()" class="close"><img src="phone-icon/icons8-close-100.png" alt="close">close</a>
+</div>
+
+
+</div>
+</div>
+</div>
+
+<div class="image-content">
+    
+<div class="image-overlay" id="payLocationOverlay" >
+    <div class="input-style">
+        <img src="icon/icons8-location-100 (2).png" alt="location">
+    <input type="text" id="payLocationOver" readonly>
+    </div>
+
+     <div class="input-style">
+        <img src="icon/icons8-calendar-100.png" alt="calendar">
+    <input type="text" id="payDateOverlay" readonly>
+    </div>
+
+     <div class="input-style">
+        <img src="icon/icons8-queue-100.png" alt="" srcset="">
+    <input type="text" id="payGuestsOverlay" readonly>
+    </div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<div id="errorBox">
+<div class="error-content">
+<img src="loading/icons8-error-100.png" alt="">
+<p id="errorText"></p>
+</div>
+</div>
+
+    <div id="loader">
+    <div class="loader-content">
+         <img src="loading/savannatrails.gif" alt="loading-page">
+            <h1> Entering the wild.......</h1>
+    </div>
+    </div>
+
+
+
+
+  <section id="homepage">
+
+
+    <header id="head">
+
+    
+        <div class="logo">
+            <img src="icon/Screenshot 2026-03-05 200659.png" alt="Savanna Trails Logo">
+            <h1>Savanna Trails</h1>
+        </div>
+        
+        <div class="social-icons">
+            <a href="https://www.facebook.com/SavannaTrails" target="_blank"><img src="phone-icon/icons8-facebook-circled-100.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/SavannaTrails" target="_blank"><img src="phone-icon/icons8-instagram-logo-100 (1).png" alt="Instagram"></a>
+            <a href="https://www.twitter.com/SavannaTrails" target="_blank"><img src="phone-icon/icons8-x-100.png" alt="Twitter"></a>
+            <a href="https://www.youtube.com/company/savanna-trails" target="_blank"><img src="phone-icon/icons8-youtube-100 (1).png" alt="youtube"></a>
+            <a href="https://www.tiktok.com/company/savanna-trails" target="_blank"><img src="phone-icon/icons8-tiktok-100 (1).png" alt="Tiktok"></a>
+    </div>
+
+    </header>
+    
+    <div class="overlay"></div>
+   
+   <section id="navbar">
+  <img src="icon/icons8-menu-100.png" alt="menu-icon" class="menu-icon" >
+    <nav>
+  <ul class="nav-links">
+        <li><img src="icon/icons8-home-96.png" alt="icons8-home-96"><a href="#home">Home</a></li>
+        <li><img src="icon/icons8-about-100 (1).png" alt="icons8-about-100"><a href="#about-page">About Us</a></li>
+        <li><img src="icon/icons8-location-100 (2).png" alt="icons8-location-100"><a href="#destinations">Destinations</a></li>
+        <li><img src="icon/icons8-adventure-100.png" alt="icons8-adventure-100"><a href="#adventures">Adventures</a></li>
+        <li><img src="icon/icons8-feedback-100 (1).png" alt="icons8-phone-100"><a href="#reviews">Feedback</a></li>
+        <li><img src="icon/icons8-phone-100 (3).png" alt="icons8-phone-100"><a href="#contact">Contact</a></li>
+    </ul>
+
+</nav>
+
+   </section>
+
+
+
+<div class="container" id="home">  
+
+<div class="texts">
+<h1>EASTERN AFRICA</h1>
+
+<div class="social-icons2">
+            <a href="https://www.facebook.com/SavannaTrails" target="_blank"><img src="phone-icon/icons8-facebook-circled-100.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/SavannaTrails" target="_blank"><img src="phone-icon/icons8-instagram-logo-100 (1).png" alt="Instagram"></a>
+            <a href="https://www.twitter.com/SavannaTrails" target="_blank"><img src="phone-icon/icons8-x-100.png" alt="Twitter"></a>
+            <a href="https://www.youtube.com/company/savanna-trails" target="_blank"><img src="phone-icon/icons8-youtube-100 (1).png" alt="youtube"></a>
+            <a href="https://www.tiktok.com/company/savanna-trails" target="_blank"><img src="phone-icon/icons8-tiktok-100 (1).png" alt="Tiktok"></a>
+</div>
+
+<P> explore the breathtaking nature walks of East Africa. from the savannah to the cool rainforest.</P>
+</div>
+
+
+
+<div class="container2"> 
+
+<div class="order">
+    <h1>location</h1>
+    <div class="locations">
+<img src="icon/icons8-location-100 (1).png" alt="location-icon">
+<input type="text" list="locations" placeholder="Choose location" id="locationInput" required>
+ 
+<datalist id="locations">
+  <option value="Indian Ocean, Kenya">
+  <option value="Maasai Mara, Kenya">
+  <option value="Nairobi, Kenya">
+  <option value="Mount Kenya">
+
+  <option value="Zanzibar, Tanzania">
+  <option value="Serengeti Culture">
+  <option value="Serengeti National Park">
+  <option value="Mt. Kilimanjaro, Tanzania">
+
+  <option value="Rwenzori Mountains, Uganda">
+  <option value="Queen Elizabeth National Park">
+  <option value="River Nile, Uganda">
+  <option value="Mgahinga Gorilla National Park">
+
+  <option value="Nyungwe Forest National Park">
+  <option value="Akagera Wildlife, Rwanda">
+  <option value="Lake Kivu, Rwanda">
+  <option value="Kigali City, Rwanda">
+
+  <option value="Lake Tanganyika, Burundi">
+  <option value="Kibira Forest, Burundi">
+  <option value="Kibira Culture, Burundi">
+  <option value="Karera Waterfalls, Burundi">
+    
+  <option value="Lalibela Wonders, Ethiopia">
+  <option value="Simien Mountains, Ethiopia">
+  <option value="Addis Ababa, Ethiopia">
+  <option value="Kaffa, Ethiopia">
+</datalist>
+</div>
+
+</div>
+
+<div class="Date">
+    <h1>Date</h1>
+    <div class="when">
+<img src="icon/icons8-calendar-100.png" alt="icons8-calendar-100">
+<input type="date" list="locations" placeholder="Choose location"id="dateInput"  required>
+
+</div>
+
+</div>
+
+<div class="people">
+    <h1>Guests</h1>
+    <div class="guest">
+<img src="icon/icons8-queue-100.png" alt="icons8-queue-100">
+<input type="number" min="1" max="15" value="1" placeholder="Guests" id="guestInput" required>
+
+</div>
+
+</div>
+
+<div class="button">
+    <h1>book</h1>
+    <button id="scheduleBtn">Schedule</button>
+</div>
+</div>
+    </div>
+ 
+<section id="phone-bar">
+<ul class="nav-links-phone">
+        <li><a href="#home"><img src="icon/icons8-home-96.png" alt="icons8-home-96"></a></li>
+        <li><a href="#about-page"><img src="icon/icons8-about-100 (1).png" alt="icons8-about-100"></a></li>
+        <li><a href="#destinations"><img src="icon/icons8-location-100 (2).png" alt="icons8-location-100"></a></li>
+        <li><a href="#adventures"><img src="icon/icons8-adventure-100.png" alt="icons8-adventure-100"></a></li>
+        <li><a href="#reviews"><img src="icon/icons8-feedback-100 (1).png" alt="icons8-phone-100"></a></li>
+        <li><a href="#contact"><img src="icon/icons8-phone-100 (3).png" alt="icons8-phone-100"></a></li>
+</ul>
+</section>
+
+   </section>
+
+
+<section id="about-page">
+
+<div class="story">
+<h1>Our Story.</h1>
+<P class="more">Savannah Trails was created to share the beauty and wild spirit of EastAfrica. From the golden savannahs to incredible wildlife encounters, we design safari experiences that connect travelers with nature and adventure. We Give visitors unforgettable journeys through Africa’s most beautiful destinations.</P>
+</div>
+
+<div class="photo">
+    <img src="img/d769fe3f4234b6304c0b6d1f66c2fef7.jpg " alt="safari images" class="img1">
+    <img src="img/86739d8ee60ebde5f3089b6193e54b7d.jpg" alt="images" class="img2">
+    <img src="img/5024564da344624611fcaa294bdbfae4.jpg" alt="images" class="img3">
+</div>
+
+   </section>
+
+ <section class="carousel" id="destinations">
+
+<div class="list">
+
+    <div class="item">
+        <img src="img/pexels-asadphoto-3155646.jpg" alt="kenya">
+
+        <div class="content">
+        <h2>visit Kenya.</h2>
+        <p>Close your eyes and imagine warm golden sand beneath your feet, the sound of waves gently crashing, and a horizon that stretches forever. Kenya's coastline is not just a destination — it is a feeling you will never want to leave behind  </p>
+        </div>
+        
+    </div>
+
+    <div class="item">
+        <img src="img/pexels-sebastian-munoz-2510886-13823218.jpg" alt="tanzania-backgrpund">
+
+         <div class="content">
+        <h2>visit Tanzania.</h2>
+        <p> Touch the Roof of Africa
+"Standing at the foot of Kilimanjaro, you realize some mountains are more than just mountains. They are a calling. Rise through the clouds, conquer Africa's highest peak and come back a different person entirely." </p>
+         </div>
+
+    </div>
+
+    <div class="item">
+        <img src="img/uk_used_cameraman-crane-9939313_1920.jpg" alt="Uganda">
+
+        <div class="content">
+        <h2>visit Uganda.</h2>
+        <p>Uganda is a stunning pearl of Africa with lush green landscapes, misty mountains, and rich wildlife. From gorilla trekking in Bwindi to the mighty Nile, it offers pure adventure and unforgettable beauty. </p>
+        </div>
+
+    </div>
+
+    <div class="item">
+        <img src="img/pexels-amar-27350242.jpg" alt="Rwanda">
+
+        <div class="content">
+        <h2>visit Rwanda.</h2>
+        <p>Land of Fire and Mist
+"Rising dramatically from the earth, Rwanda's volcanic mountains are as powerful as they are beautiful. Hike through ancient lava trails wrapped in thick mist, where every turn reveals a landscape so dramatic it feels like another world entirely." </p>
+        </div>
+
+    </div>
+
+    <div class="item">
+        <img src="img/pexels-snapwire-404315.jpg" alt="Burundi">
+
+        <div class="content">               
+        <h2>visit Burundi.</h2>
+        <p>Burundi is a hidden gem of Africa, filled with rolling hills, Lake Tanganyika’s calm beauty, and rich cultural traditions that create a peaceful and authentic travel experience. </p>
+        </div>
+
+    </div>
+
+    <div class="item">
+        <img src="img/chiemseherin-wadi-rum-5079834_1920.jpg" alt="Ethopia">
+
+        <div class="content">
+        <h2>visit Ethopia.</h2>
+        <p>Ethiopia is a land of ancient wonders, dramatic highlands, and deep history, where unique landscapes and historic sites like rock-hewn churches create a powerful and timeless adventure. </p>
+        </div>
+    </div>
+
+</div>
+
+<div class="thumbnails">
+
+<div class="item">
+    <img src="img/pexels-sebastian-munoz-2510886-13823218.jpg" alt="tanzania-thumbnail">
+    <div class="overlay2"></div>
+<div class="content">
+    <h1>Tanzania</h1>
+</div>
+
+</div>
+
+<div class="item">
+    <img src="img/uk_used_cameraman-crane-9939313_1920.jpg" alt="uganda-thumbnail">
+    <div class="overlay2"></div>
+<div class="content">
+    <h1>Uganda</h1>
+</div>
+
+</div>
+
+<div class="item">
+    <img src="img/pexels-amar-27350242.jpg" alt="rwanda-thumbnail">
+    <div class="overlay2"></div>
+<div class="content">
+    <h1>Rwanda</h1>
+</div>
+
+</div>
+
+<div class="item">
+    <img src="img/pexels-snapwire-404315.jpg" alt="Bururndi-thumbnail">
+    <div class="overlay2"></div>
+<div class="content">
+    <h1>Burundi</h1>
+</div>
+
+</div>
+
+
+<div class="item">
+    <img src="img/chiemseherin-wadi-rum-5079834_1920.jpg" alt="ethopia-thumbnail">
+<div class="overlay2"></div>
+<div class="content">
+    <h1>Ethopia</h1>
+</div>
+
+</div>
+
+
+<div class="item">
+    <img src="img/pexels-asadphoto-3155646.jpg" alt="kenya-thumbnail">
+    <div class="overlay2"></div>
+<div class="content">
+    <h1>Kenya</h1>
+</div>
+
+</div>
+
+
+</div>
+
+<div class="arrows">
+ <button  id="prev"><</button>
+ <button  id="next">></button>
+</div>
+
+ </section>
+
+ <section class= "adventures" id="adventures">
+
+<div class="adtext">
+    <h1>Experience Unforgettable East African Adventures </h1>
+    <p>Explore wildlife safaris,mountain treks and cultural journeys around east africa</p>
+</div>
+
+<div class="ideas">
+    
+     <ul class="list-container">
+        <li class="drop-down">choose country ▼ </li>
+         <li class="list-container-btn available" data-country="kenya"><img src="img/icons8-kenya-100.png" alt="">Kenya</li>
+         <li class="list-container-btn" data-country="Tanzania"><img src="img/icons8-tanzania-100.png" alt="">Tanzania</li>
+         <li class="list-container-btn" data-country="Uganda"><img src="img/icons8-uganda-100.png" alt="">Uganda</li>
+         <li class="list-container-btn" data-country="Rwanda"><img src="img/icons8-rwanda-100.png" alt="">Rwanda</li>
+         <li class="list-container-btn" data-country="Burundi"><img src="img/icons8-burundi-100.png" alt="">Burundi</li>
+         <li class="list-container-btn" data-country="Ethiopia"><img src="img/icons8-ethiopia-100.png" alt="">Ethiopia</li>
+     </ul>
+</div>
+
+
+
+<div class="country-content  available" id="kenya">
+
+<div class="country-container">
+
+<img src="img/7366571b50b4283a29856b985c9909a6.jpg" alt="beach">
+
+<div class="big-content">
+    <div class="intext">
+
+    <h3>7day relaxation</h3>
+    <h2>Explore the Indian Ocean</h2>
+    <p>relax where the ocean meets pure serenity</p>
+
+    <div class="small-content">
+
+     <div class="cash">
+        <h5>from</h5>
+        <h6>$1500/pack</h6>
+     </div>
+
+    <a href="#">Book Now</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="country-container">
+
+<img src="img/Beginner to Mt. Kenya in 90 Days.jpg" alt="hiking">
+
+<div class="big-content">
+    <div class="intext">
+
+    <h3>3 day hiking</h3>
+    <h2>Explore the peak of Mt.Kenya</h2>
+    <p> Adventure begins where the mountains rise </p>
+
+    <div class="small-content">
+
+     <div class="cash">
+        <h5>from</h5>
+        <h6>$1100/pack</h6>
+     </div>
+
+            <a href="#">Book Now</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="country-container">
+
+<img src="img/d80d0fa3a9165f28003eb602b946ab51.jpg" alt="safari">
+
+<div class="big-content">
+    <div class="intext">
+
+    <h3>5 day safari</h3>
+    <h2>Enjoy the ride of savannah</h2>
+    <p>Witness wildlife where nature rules.</p>
+
+    <div class="small-content">
+
+     <div class="cash">
+        <h5>from</h5>
+        <h6>$1700/pack</h6>
+     </div>
+
+            <a href="#">Book Now</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="country-container">
+
+<img src="img/7a8854e29fae7e2c75f865c8cc35ab1b.jpg" alt="city">
+
+<div class="big-content">
+    <div class="intext">
+
+    <h3>3 day tour</h3>
+    <h2>Explore the beautiful city</h2>
+    <p>Explore Africa’s most dynamic capital</p>
+
+    <div class="small-content">
+
+     <div class="cash">
+        <h5>from</h5>
+        <h6>$350/pack</h6>
+     </div>
+
+            <a href="#">Book Now</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="country-content" id="Tanzania">
+
+<div class="country-container">
+
+<img src="img/f99e2fdce5cee014a440d0ee3eedce76.jpg" alt="beach">
+
+<div class="big-content">
+    <div class="intext">
+
+    <h3>7day adventure</h3>
+    <h2>Conquer Mount Kilimanjaro </h2>
+    <p>rise above africa’s tallest peak</p>
+
+    <div class="small-content">
+
+     <div class="cash">
+        <h5>from</h5>
+        <h6>$1800/pack</h6>
+     </div>
+
+            <a href="#">Book Now</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="country-container">
+
+<img src="img/fa025c7189d3be96222a7a5d3167d3a5.jpg " alt="serengeti">
+
+<div class="big-content">
+    <div class="intext">
+
+    <h3>5 day safari</h3>
+    <h2>Witness the Great Migration</h2>
+    <p>experience nature’s greatest show in the serengeti</p>
+
+    <div class="small-content">
+
+     <div class="cash">
+        <h5>from</h5>
+        <h6>$1600/pack</h6>
+     </div>
+
+            <a href="#">Book Now</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="country-container">
+
+<img src="img/f33bd47bdf4ffb90adb422299fa1ee5f.jpg" alt="massai">
+
+<div class="big-content">
+    <div class="intext">
+
+    <h3>4 day culture</h3>
+    <h2> Discover Maasai Traditions</h2>
+    <p>step into rich culture and timeless african heritage.</p>
+
+    <div class="small-content">
+
+     <div class="cash">
+        <h5>from</h5>
+        <h6>$1700/pack</h6>
+     </div>
+
+            <a href="#">Book Now</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="country-container">
+
+<img src="img/c452fda6128ac82f95dfca42c27504f2.jpg " alt="beach">
+
+<div class="big-content">
+    <div class="intext">
+
+    <h3>5 day relaxation</h3>
+    <h2>Escape to Zanzibar Beaches</h2>
+    <p>unwind on white sands and crystal clear waters.</p>
+
+    <div class="small-content">
+
+     <div class="cash">
+        <h5>from</h5>
+        <h6>$950/pack</h6>
+     </div>
+
+            <a href="#">Book Now</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="country-content" id="Uganda">
+
+<div class="country-container">
+
+<img src="img/a851a155910cf89acc36f7598a83ee84.jpg" alt="beach">
+
+<div class="big-content">
+    <div class="intext">
+
+    <h3>4day adventure</h3>
+    <h2>Mgahinga Gorilla  </h2>
+    <p>Experience a wild encounter deep in the jungle.</p>
+
+    <div class="small-content">
+
+     <div class="cash">
+        <h5>from</h5>
+        <h6>$1000/pack</h6>
+     </div>
+
+            <a href="#">Book Now</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="country-container">
+
+<img src="img/131ba06e4a788cc16736fbce77bddb28.jpg" alt="hiking">
+
+<div class="big-content">
+    <div class="intext">
+
+    <h3>5 day safari</h3>
+    <h2>Explore Queen Elizabeth Park</h2>
+    <p> diverse wildlife across savannah and lakes </p>
+
+    <div class="small-content">
+
+     <div class="cash">
+        <h5>from</h5>
+        <h6>$1900/pack</h6>
+     </div>
+
+            <a href="#">Book Now</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="country-container">
+
+<img src="img/61021305c10266c8187070ee33523881.jpg" alt="safari">
+
+<div class="big-content">
+    <div class="intext">
+
+    <h3>3 day adventure</h3>
+    <h2>Experience the River Nile</h2>
+    <p>rafting, falls, and pure adrenaline.</p>
+
+    <div class="small-content">
+
+     <div class="cash">
+        <h5>from</h5>
+        <h6>$800/pack</h6>
+     </div>
+
+            <a href="#">Book Now</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="country-container">
+
+<img src="img/663c60ba3eed5e4464a9388afbfe479a.jpg" alt="beach">
+
+<div class="big-content">
+    <div class="intext">
+
+    <h3>6 day hiking</h3>
+    <h2>Climb the Rwenzori Mountains</h2>
+    <p>the mountains of the moon await.</p>
+
+    <div class="small-content">
+
+     <div class="cash">
+        <h5>from</h5>
+        <h6>$1350/pack</h6>
+     </div>
+
+            <a href="#">Book Now</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+</div>
+
+
+<div class="country-content" id="Rwanda">
+
+<div class="country-container">
+
+<img src="img/08255c9e53ebfb367b9090daf4b3911a.jpg" alt="beach">
+
+<div class="big-content">
+    <div class="intext">
+
+    <h3>4 day adventure</h3>
+    <h2> Nyungwe Forest .</h2>
+    <p>encounter gentle giants in the misty forests</p>
+
+    <div class="small-content">
+
+     <div class="cash">
+        <h5>from</h5>
+        <h6>$1200/pack</h6>
+     </div>
+
+            <a href="#">Book Now</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="country-container">
+
+<img src="img/51a9a84199c37fc7ade67a32a8b6df39.jpg" alt="hiking">
+
+<div class="big-content">
+    <div class="intext">
+
+    <h3>5 day escape</h3>
+    <h2>Relax at Lake Kivu</h2>
+    <p>peaceful shores and stunning sunset views</p>
+
+    <div class="small-content">
+
+     <div class="cash">
+        <h5>from</h5>
+        <h6>$1100/pack</h6>
+     </div>
+
+            <a href="#">Book Now</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="country-container">
+
+<img src="img/4836d087cd180301fe40578f905e51c6.jpg" alt="safari">
+
+<div class="big-content">
+    <div class="intext">
+
+    <h3>3 day safari</h3>
+    <h2> Explore Kigali.</h2>
+    <p> clean streets, culture and modern life </p>
+
+    <div class="small-content">
+
+     <div class="cash">
+        <h5>from</h5>
+        <h6>$1700/pack</h6>
+     </div>
+
+            <a href="#">Book Now</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="country-container">
+
+<img src="img/ff538a228e3a8956fe5cd34c15c5a55f.jpg" alt="beach">
+
+<div class="big-content">
+    <div class="intext">
+
+    <h3>4 day safari</h3>
+    <h2>Discover Akagera Wildlife.</h2>
+    <p>lions, elephants, and lakeside beauty</p>
+
+    <div class="small-content">
+
+     <div class="cash">
+        <h5>from</h5>
+        <h6>$350/pack</h6>
+     </div>
+
+            <a href="#">Book Now</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="country-content" id="Burundi">
+
+<div class="country-container">
+
+<img src="img/87c76bff887fef75e382ab2cababd465.jpg" alt="beach">
+
+<div class="big-content">
+    <div class="intext">
+
+    <h3>4day relaxation</h3>
+    <h2>Unwind at Lake Tanganyika</h2>
+    <p> quiet waters and untouched beauty.</p>
+
+    <div class="small-content">
+
+     <div class="cash">
+        <h5>from</h5>
+        <h6>$900/pack</h6>
+     </div>
+
+            <a href="#">Book Now</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="country-container">
+
+<img src="img/68eb9129e6b4a3761262010e3cddfba6.jpg " alt="hiking">
+
+<div class="big-content">
+    <div class="intext">
+
+    <h3>3 day nature</h3>
+    <h2> Explore Kibira Forest</h2>
+    <p> lush greenery and peaceful forest trails </p>
+
+    <div class="small-content">
+
+     <div class="cash">
+        <h5>from</h5>
+        <h6>$800/pack</h6>
+     </div>
+
+            <a href="#">Book Now</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="country-container">
+
+<img src="img/8dff68ef01821ff5a47705ad5baaf09a.jpg" alt="safari">
+
+<div class="big-content">
+    <div class="intext">
+
+    <h3>3 day culture</h3>
+    <h2>Feel the kibira Royal Drums</h2>
+    <p>experience traditional performances.</p>
+
+    <div class="small-content">
+
+     <div class="cash">
+        <h5>from</h5>
+        <h6>$900/pack</h6>
+     </div>
+
+            <a href="#">Book Now</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="country-container">
+
+<img src="img/5b3abb1e6089e3756e86c1e72c7c996f.jpg" alt="beach">
+
+<div class="big-content">
+    <div class="intext">
+
+    <h3>2 day tour</h3>
+    <h2>Discover Karera Waterfalls</h2>
+    <p>hidden cascades surrounded by nature</p>
+
+    <div class="small-content">
+
+     <div class="cash">
+        <h5>from</h5>
+        <h6>$850/pack</h6>
+     </div>
+
+            <a href="#">Book Now</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+<div class="country-content" id="Ethiopia">
+
+<div class="country-container">
+
+<img src="img/feabdbd7ed3fd59843169e3f50a04dc5.jpg" alt="beach">
+
+<div class="big-content">
+    <div class="intext">
+
+    <h3>5 day history</h3>
+    <h2>Explore Lalibela Wonders</h2>
+    <p> walk through ancient rock-hewn churches carved in time. </p>
+
+    <div class="small-content">
+
+     <div class="cash">
+        <h5>from</h5>
+        <h6>$1200/pack</h6>
+     </div>
+
+            <a href="#">Book Now</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="country-container">
+
+<img src="img/c4f8883f2fd479462ed631ad8eb4618d.jpg" alt="hiking">
+
+<div class="big-content">
+    <div class="intext">
+
+    <h3> 6 day trekking </h3>
+    <h2>  Hike the Simien Mountains </h2>
+    <p> breathtaking cliffs and rare wildlife await you  </p>
+
+    <div class="small-content">
+
+     <div class="cash">
+        <h5>from</h5>
+        <h6>$1100/pack</h6>
+     </div>
+
+            <a href="#">Book Now</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="country-container">
+
+<img src="img/251d8f003a43c0d71db5297d948c680f.jpg" alt="safari">
+
+<div class="big-content">
+    <div class="intext">
+
+    <h3>3 day city</h3>
+    <h2>Explore Addis Ababa </h2>
+    <p>vibrant culture, rich history, and the heart of africa</p>
+
+    <div class="small-content">
+
+     <div class="cash">
+        <h5>from</h5>
+        <h6>$700/pack</h6>
+     </div>
+
+            <a href="#">Book Now</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="country-container">
+
+<img src="img/21c56dbfd1e847ebdc13f191e6069ce7.jpg" alt="beach">
+
+<div class="big-content">
+    <div class="intext">
+
+    <h3>3 day tour</h3>
+    <h2>  Discover Kaffa</h2>
+    <p>walk through lush forests where coffee was first found.</p>
+
+    <div class="small-content">
+
+     <div class="cash">
+        <h5>from</h5>
+        <h6>$350/pack</h6>
+     </div>
+
+            <a href="#">Book Now</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+ </section>
+
+ <section class="reviews" id="reviews">
+     <div class="reviewstext">
+     <h1>voices from the road </h1>
+     <p>Thousands of travelers have discovered hidden gems, chased sunsets, and created memories that last a lifetime. Here is what some of them had to say about their journey with us.</p>
+     </div>
+
+     <div class="cards-container">
+
+     <div class="review-card">
+        <div class="profile">
+            <img src="img/3e83e4885e3d11f266d8f8e325d8e898.jpg" alt="reviewer image">
+        </div>
+        <div class="review-content">
+            <div class="stars">
+             <img src="img/icons8-star-filled-100.png" alt="stars-ratings">
+             <img src="img/icons8-star-filled-100.png" alt="stars-ratings">
+             <img src="img/icons8-star-filled-100.png" alt="stars-ratings">
+             <img src="img/icons8-star-filled-100.png" alt="stars-ratings">
+            <img src="img/icons8-star-filled-100.png" alt="stars-ratings">
+            </div>
+            <h2>John Doe</h2>
+            <h3>Traveler</h3>
+                <div class="comma">
+                    <img src="img/icons8-comma-100.png" alt="comma">
+                    <img src="img/icons8-comma-100.png" alt="comma">
+                </div>
+            <p>The adventures section is unmatched. Found trails and experiences I couldn't find anywhere else. Pure adrenaline.</p>
+        </div>
+
+     </div>
+
+     <div class="review-card active">
+        <div class="profile">
+            <img src="img/53737fb9be3fb3e02da70728e97b4e41.jpg" alt="reviewer image">
+        </div>
+        <div class="review-content">
+            <div class="stars">
+             <img src="img/icons8-star-filled-100.png" alt="stars-ratings">
+             <img src="img/icons8-star-filled-100.png" alt="stars-ratings">
+             <img src="img/icons8-star-filled-100.png" alt="stars-ratings">
+             <img src="img/icons8-star-filled-100.png" alt="stars-ratings">
+            <img src="img/icons8-star-filled-100.png" alt="stars-ratings">
+            </div>
+            <h2>Sarah Johnson</h2>
+            <h3>solo-traveler</h3>
+                <div class="comma">
+                    <img src="img/icons8-comma-100.png" alt="comma">
+                    <img src="img/icons8-comma-100.png" alt="comma">
+                </div>
+            <p>I never thought I'd explore such breathtaking landscapes alone, but this site guided me to the perfect destinations. Every detail was spot on!  </p>
+        </div>
+
+     </div>
+
+     <div class="review-card">
+        <div class="profile">
+            <img src="img/509bb4d4e8b05d1344289a4934f88345.jpg" alt="reviewer image">
+        </div>
+        <div class="review-content">
+            <div class="stars">
+             <img src="img/icons8-star-filled-100.png" alt="stars-ratings">
+             <img src="img/icons8-star-filled-100.png" alt="stars-ratings">
+             <img src="img/icons8-star-filled-100.png" alt="stars-ratings">
+             <img src="img/icons8-star-filled-100.png" alt="stars-ratings">
+            <img src="img/icons8-star-filled-100.png" alt="stars-ratings">
+            </div>
+            <h2> James & Lena K </h2>
+            <h3>Couple Travelers</h3>
+                <div class="comma">
+                    <img src="img/icons8-comma-100.png" alt="comma">
+                    <img src="img/icons8-comma-100.png" alt="comma">
+                </div>
+            <p> Our anniversary trip was absolutely magical. The destinations listed here are hidden gems we would never have found on our own. </p>
+        </div>
+
+     </div>
+
+     </div>
+
+
+</section>
+
+</div>
+
+</section>
+
+<section class="footer" id="contact">
+
+<div class="overlay3"></div>
+
+<div class="footer-container">
+
+    <div class="hotel">
+        <h1>Hotel patners.</h1>
+      <div class="hotel-patners">
+        <a href=""> Sarova Stanley — Nairobi </a><br>
+        <a href=""> Serena Hotel —  Tanzania</a><br>
+        <a href=""> Kigali Marriott Hotel — Rwanda</a><br>
+        <a href=""> Kiriri Garden Hotel —  Burundi</a><br>
+        <a href=""> Serena Hotel — Uganda</a><br>
+        <a href=""> Skylight Hotel —  Ethiopia</a><br> 
+      </div>
+
+    </div>
+
+<div class="patners">
+ <h1>Our Partners</h1>
+<div class="organization-patners">
+<a href="">Kenya Tourism Board , Kenya </a><br>
+<a href="">Tanzania Tourist Board ,Tanzania </a><br>
+<a href="">Rwanda  Board ,Rwanda </a><br>
+<a href="">Burundi Tourism Office , Burundi </a><br>
+<a href="">Ethiopian Tourism ,Ethiopia </a><br>
+<a href="">Uganda Tourism Board — Uganda </a><br>
+</div>
+</div>
+
+<div class="contacts">
+    <h1>contact-us</h1>
+<div class="contact-me">
+<a href="">info@savannahtrails.com</a><br>
+<a href="">+254 700 000 000  </a><br>
+<a href="">+254 700 000 000 </a><br>
+<a href="">Nairobi,Kenya </a><br>
+</div>
+</div>
+
+<div class="Follow">
+    <h1>Follow us</h1>
+<div class="Follow-us">
+<a href=""><img src="phone-icon/icons8-instagram-logo-100 (1).png" alt=""></a>
+<a href=""><img src="phone-icon/icons8-tiktok-100 (1).png" alt=""></a>
+<a href=""><img src="phone-icon/icons8-x-100.png" alt=""></a>
+<a href=""><img src="phone-icon/icons8-facebook-circled-100.png" alt=""></a>
+<a href=""><img src="icon/icons8-gmail-logo-100.png" alt=""></a>
+</div>
+
+
+</div>
+
+</div>
+ 
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script defer src="style.js"></script>
+</body>
+</html>
